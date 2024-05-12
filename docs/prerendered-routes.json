@@ -1,0 +1,14 @@
+{
+  "routes": [
+    "/",
+    "/buy",
+    "/feedbacks",
+    "/mylist",
+    "/profile",
+    "/purchases",
+    "/register",
+    "/sell",
+    "/welcome",
+    "/wishlist"
+  ]
+}
