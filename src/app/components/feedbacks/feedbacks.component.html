@@ -1,0 +1,31 @@
+
+<div class="all">
+  <header>
+    <span routerLink="/buy" class="com_name">
+      CarCraze
+    </span>
+    <span class="links">
+      <a href="mylist" class="hov">My List</a>
+      <a href="wishlist" class="hov">Wishlist</a>
+      <a href="purchases" class="hov">Purchases</a>
+      <a href="feedbacks" class="hov" id="active">FeedBacks</a>
+      <a href="/" class="hov">Logout</a>
+    </span>
+  </header>
+
+  
+    <div class="feedback-list" *ngFor="let feedback of (feedbacks$ | async)">
+      <div class="image">
+        <img [src]="feedback.image_url" class="car_img">
+      </div>
+      <div class="comments">
+        <div class="info">
+          <h1 class="brand"> {{ feedback.brand }}</h1> <p class="name">{{ feedback.model }} </p> <hr>
+          
+          <div *ngFor="let comment of feedback.comments" class="comm">
+            {{ comment }}
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

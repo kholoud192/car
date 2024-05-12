@@ -1,0 +1,41 @@
+<div class="all">
+    <header>
+      <span routerLink="/buy" class="com_name">
+        CarCraze
+      </span>
+      <span class="links">
+        <a href="mylist" class="hov">My List</a>
+        <a href="wishlist" class="hov" id="active">Wishlist</a>
+        <a href="purchases" class="hov">Purchases</a>
+        <a href="feedbacks" class="hov">FeedBacks</a>
+        <a href="/" class="hov">Logout</a>
+      </span>
+    </header>
+    <div class="page">
+    <div class="container">
+      <div *ngIf="userData$ | async as userData; else loading">
+        <div *ngFor="let car of userData">
+          <div class="layer">
+            <div  class="image">
+              <img [src]="car.image_url" alt="" class="car_img">
+            </div>
+            <div class="info">
+                <h2 class="brand">{{car.brand.toLocaleUpperCase()}}
+                    <i  class="fa-solid fa-heart" ></i>
+                </h2>
+              <h2 class="brand">{{ car.brand }}</h2>
+              <p class="name">{{ car.name }}</p>
+              <p class="disprice"><del>{{ car.price + 50000 }}EGP</del></p>
+              <p class="price">{{ car.price }}EGP</p>
+              <span class="kilo"><i class="fa-regular fa-clock"></i>{{ car.kilometer }} KM</span>
+              <span class="year"><i class="fa-regular fa-calendar"></i>{{ car.year }}</span>
+              <span class="trans"><i class="fa-solid fa-code-branch"></i>{{ car.transmission }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #loading>Loading...</ng-template>
+    </div>
+  </div>
+</div>
+  

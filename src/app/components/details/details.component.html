@@ -1,0 +1,70 @@
+<header>
+  <a routerLink="/welcome"><span class="com_name">
+    CarCraze
+  </span></a>
+  <span class="links">
+      <a href="buy" class="hov">Buy</a>
+      <a href="sell" class="hov">Sell</a>
+      <a href="/" class="hov">Logout</a>
+      <a href="profile"><i class="fa-regular fa-user" style="font-size: x-large;" ></i></a>
+  </span>
+</header>
+<div *ngIf="car" class="container">
+  <div class="image">
+    <img [src]="car.image_url" alt="Car Image" width="200px" height="200px">
+  </div>
+  <div class="card">
+    <div class="info">
+      <div class="info1">
+        <h2 class="brand">{{car.brand.toLocaleUpperCase()}}</h2>
+      </div>
+      <div class="info2">
+        <p class="name">{{car.model.toLocaleUpperCase()}}</p>
+        <span class="kilo"><i class="fa-regular fa-clock"></i>{{car.kilometer}} KM </span>
+        <span class="year"><i class="fa-regular fa-calendar" ></i>{{car.year}}</span>
+        <span class="trans"><i class="fa-solid fa-code-branch" ></i>{{car.transmission}}</span>
+        <hr/>
+        <p class="name">CarCraze Showroom</p>
+        <p class="loc"> <i class="fa-solid fa-location-dot"></i><span style="width:80%">{{ car.location }} </span> </p>
+        <hr/>
+        <p class="name">Pricing</p>
+        <p class="price"><i class="fa-solid fa-hand-holding-dollar"></i>{{car.price}} EGP</p>
+        <div class="discount">50k Off Limited Offer</div>
+        <hr/>
+        <p class="name">Contact</p>
+        <p class="loc"><i class="fa-solid fa-phone"></i>{{ car.phone_number }}</p>
+        <button (click)="buyCar(car)" class="btn_buy">Buy</button>
+    </div>
+    </div>
+  </div>
+</div>
+<div class="feedback">
+  <div class="txt">
+    <h2 class="head">Add Rate : </h2>
+    <div class="rate">
+        <!-- Rating System -->
+      <div class="rating">
+      <input type="radio" id="star5" name="rating" value="5">
+      <label for="star5"></label>
+
+      <input type="radio" id="star4" name="rating" value="4">
+      <label for="star4"></label>
+
+      <input type="radio" id="star3" name="rating" value="3">
+      <label for="star3"></label>
+
+      <input type="radio" id="star2" name="rating" value="2">
+      <label for="star2"></label>
+
+      <input type="radio" id="star1" name="rating" value="1">
+      <label for="star1"></label>
+    </div>
+
+    </div>
+    <hr>
+    <div class="comment">
+      <h2 class="head">Add Feedback :</h2>
+      <textarea #feedbackTextarea  cols="70px" rows="5px" placeholder="Add Your Feedback ......"></textarea>
+    </div>
+    <button class="btn_send" (click)="sendFeedback(feedbackTextarea.value)" >Send</button>
+</div>
